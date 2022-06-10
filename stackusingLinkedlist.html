@@ -1,0 +1,90 @@
+<html>
+<body>
+<script>
+class link
+{
+	constructor()
+	{
+		this.n = 0;
+		this.x = null;
+	}
+}
+class Stack
+{
+	constructor()
+	{
+		this.high = null;
+	}
+	Pushfn(a)
+	{
+		var t = new link();
+		if (t == null) 
+		{
+			document.write("<br>Stack is Overflow");
+			return;
+		}
+		t.n = a;
+		t.x = this.high;		
+		this.high = t;
+	}
+	emptyfn()
+	{
+		return this.high == null;
+	}
+	Peekfn()
+	{
+		if (!this.emptyfn()) 
+		{
+			return this.high.n;
+		}
+		else 
+		{
+			document.write("Empty Stack<br>");
+			return -1;
+		}
+	}
+	Popfn()
+	{
+		if (this.high == null) 
+		{
+			document.write("<br>Stack is Underflow");
+			return;
+		}
+		this.high = this.high.x;
+	}
+	printfn()
+	{
+		if (this.high == null) 
+		{
+			document.write("<br>Stack is Underflow");
+		}
+		else 
+		{
+			var t = this.high;
+			while (t != null) 
+			{
+				document.write(t.n+" ");
+				t = t.x;
+			}
+		}
+	}
+}
+var Sa = new Stack();
+Sa.Pushfn(11);
+Sa.Pushfn(12);
+Sa.Pushfn(13);
+Sa.Pushfn(14);
+Sa.Pushfn(15);
+Sa.Pushfn(16);
+Sa.printfn();
+document.write("<br>High element of the stack is ", Sa.Peekfn()+"<br>");
+Sa.Popfn();
+Sa.Popfn();
+Sa.Popfn();
+Sa.Popfn();
+Sa.printfn();
+document.write("<br>High element of the stack is ", Sa.Peekfn()+"<br>");
+
+</script>
+</body>
+</html>
